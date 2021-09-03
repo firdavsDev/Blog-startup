@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+<!-- 
+css uchun kerak buladi -->
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <div class="container">
+        <div id="myModal" class="modal fade">
+        
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Profilingiz o'chirildi...</h5>
+                </div>
+                <div class="modal-body">
+                  <p>Bosh sahifaga yoki qayta ro'yhatdan o'ting</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        <h2>Akountingizdan chiqdingizz!</h2>
+        <div class="border-top pt-3">
+            <a  class="btn btn-outline-danger ml-2"  href="{% url 'login' %}">Qayta kirish</a>
+        </div>
+    </div>
+{% endblock content %}

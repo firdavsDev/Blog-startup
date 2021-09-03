@@ -1,0 +1,34 @@
+{% extends 'blog/base.html' %}
+<!-- 
+css uchun kerak buladi -->
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <div class="content-section">
+        <form action="" method="POST">{% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Kirish</legend>
+                
+                <!-- {{ form.as_p }} -->
+
+                <!-- formalar bilan ishlash uchun kerak buladi bootstrap bilan -->
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Kirish</button>
+                <small class="text-muted ml-2">
+                    <a class="btn btn-outline-danger" href="{% url 'password_reset' %}"> Parolni unutingizmi?</a>
+                </small>
+            </div>
+
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted"> Profilingiz yo'qmi? : <a class="ml-2" href="{% url 'rigester' %}">Register</a></small> <br>
+            <small> <a href="{% url 'social:begin' 'facebook' %}"><img src="https://img.icons8.com/material-rounded/24/000000/facebook.png"/>Login with Facebook</a></small>
+        </div>
+    </div>
+    
+{% endblock content %}

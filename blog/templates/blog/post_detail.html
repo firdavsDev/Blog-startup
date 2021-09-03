@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+    
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ object.author }}</a>
+              <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+              {% if object.author == user %}
+              <div>
+                <a class="btn btn-success btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">O'zgartirish</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">O'chirish</a>
+                <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'blog-home' %}">Postlar</a>
+                
+              </div>
+
+               {% endif %}
+            </div>
+            <img class="rounded-circle account-img" src="{{ object.image.url }}" >
+            <h2 class="article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+          </div>
+          <!-- like button -->
+          
+          <form action="{% url 'like_post' post.pk %}" method="POST">
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+              
+              {% if liked %}
+              <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-danger btn-sm" ><img src="https://img.icons8.com/ios-glyphs/20/000000/facebook-like--v1.png"/> Liked </button>
+            {% else %}
+            <button type="submit" name="post_id" value="{{ post.id }}" class="btn btn-primary btn-sm" ><img src="https://img.icons8.com/material-outlined/20/000000/facebook-like--v1.png"/> Like </button>
+            {% endif %}
+          {% else %}
+        (<small><a href="{% url 'login' %}">Login</a> to like</small>)
+        {% endif %}
+        -- {{ total_likes }} Likes 
+          </form>
+        </article>
+
+
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <div class="content-section">
+
+        <div class="media">
+            <img class="rounded-circle account-img" src="{{ user.profile.image.url }}" >
+            <div class="media-body">
+                <h2 class="account-heading">Ism: {{ user.username|title }}</h2>
+                <p class="text-secondary">Email: {{ user.email }}</p>
+            </div>
+        </div>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"> Profile</legend>
+                <!-- {{ form.as_p }} -->
+
+                <!-- formalar bilan ishlash uchun kerak buladi bootstrap bilan -->
+                {{ u_form|crispy }}
+                <!-- photo -->
+                {{ p_form|crispy }}
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-success" type="submit">Yangilash</button>
+                <a href="{% url 'blog-home' %}" class="btn btn-outline-primary"><img src="https://img.icons8.com/material-outlined/20/000000/home--v2.png"/>Home</a>
+            </div>
+        </form>
+    </div>
+    
+{% endblock content %}

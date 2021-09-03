@@ -1,0 +1,66 @@
+Started: 2-Sentabr 3:21 pm
+
+Bismilohurahmonurahim
+
+#Coding By Firdavs_Dev
+
+##########################################
+ToDo
+Create Project
+
+1)start users app
+* login
+* register
+* login with facebook
+* required login
+* Reset password
+
+* url / models / view / signals
+*profile - image
+
+*messages info
+
+! Dezayn 
+----------------------------------------------
+
+2) Start blog app
+
+* CRUD
+* check is author(CRUD)
+* models(image,title,content,create_at) / views / url
+* filter users posts
+* post pdf download
+* xabar yaratish
+* xabarlarni ko'rish
+* mening xabarlarim CRUD
+* image all html
+* Like
+ 
+! create form Dezayn
+! blog Dezayn
+
+! Comments - no
+
+----------------------------------------------
+
+3) start app API
+
+- avtorizatsiya uchun API
+* CRUD post operatsiyalari uchun API(if owner true then CRUD)
+* Foydalanuvchi identifikatori orqali barcha xabarlarni olish uchun API (/users/25 - user post id)
+- Foydalanuvchi identifikatori bo'yicha xabarni olish uchun API (user user token)
+
+
+* Sittings.py
+ #install apps
+    'rest_framework',
+    'rest_framework.authtoken',
+    #apps
+    'api',
+
+* import blog.models
+* create serilazers.py - User serilazers
+* List view
+
+--------------------------
+.env file for hide secretkey

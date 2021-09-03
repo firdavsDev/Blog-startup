@@ -50,6 +50,7 @@ Create Project
 * Foydalanuvchi identifikatori orqali barcha xabarlarni olish uchun API (/users/25 - user post id)
 - Foydalanuvchi identifikatori bo'yicha xabarni olish uchun API (user user token)
 
+localhost:800/api/swagger - more info
 
 * Sittings.py
  #install apps

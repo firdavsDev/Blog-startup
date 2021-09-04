@@ -1,0 +1,104 @@
+a {
+    text-decoration: none;
+}
+
+.single-blog-area { margin-top: 85px;
+    margin-bottom: 50px;}
+.single-blog-picture {
+    float: left;
+    margin-right: 30px;
+    width: 370px;
+    margin-bottom: 15px;
+}
+.single-blog-main img {
+    width: 100%;
+}
+.single-blog-main h2 { margin-top: 0;}
+.single-blog-main h4 {  font-style: italic;}
+.single-blog-main p {
+    color: #343434;
+    font-size: 18px;
+    line-height: 23px;}
+.blog-one-quote { padding: 55px 190px 55px 170px;}
+.blog-one-quote p {
+    font-size: 16px;
+    font-style: italic;
+    line-height: 21px;
+    color: #343434;}
+.blog-one-quote span {
+    color: #272727;
+    font-size: 13px;
+    margin-right: 10px;}
+a.share-on {
+    color: #212121;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 26px;}
+.share-icons { float: none;}
+.share-icons a i {
+    border: medium none;
+    color: #212121;}
+.share-icons a i:hover { color:#8C919B}
+.comments {}
+.comments-picture img {
+    background: #cccccc none repeat scroll 0 0;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 12px;
+    padding: 3px;
+    transition: all 0.5s ease 0s;
+    width: 75px;}
+.comments-picture img:hover {  padding: 0;}
+.single-comments-text {
+    margin-top: 5px;
+    overflow: hidden;}
+a.commenter {
+    color: #282828;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 22px;
+    margin-bottom: 13px;
+    margin-top: 10px;}
+.single-comments-text h5 {
+    line-height: 16px;
+    margin-top: 12px;}
+.single-comments-text h5 span {  margin-right: 5px;}
+a.reply {
+    background: #000 none repeat scroll 0 0;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    padding: 6px 20px;
+    text-transform: uppercase;}
+.comments-2 { margin-top:0px;}
+.comments-box {  margin-top: 70px;}
+.single-commenter {
+    margin-top: 30px;
+}
+.comments-box h2 {
+    font-size: 24px;
+    line-height: 22px;
+    margin-bottom: 40px;}
+.send-comment button.send {}
+.blog-title {
+    margin-left: 14px;
+    text-align: left;}
+.blog-categories {margin-top:30px;}
+.send-comments {
+    color: #343434;
+    line-height: 22px;}
+.send-comments input, .send-comments textarea {
+    border: 1px solid #CCCCCC;
+    padding: 5px 8px;
+    width: 100%;}
+.send-comments input { height: 40px;}
+.send-comments textarea { height: 190px;}
+
+.mt40 {
+    margin-top: 40px;
+}
+

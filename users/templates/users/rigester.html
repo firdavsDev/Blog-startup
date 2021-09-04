@@ -1,31 +1,165 @@
-{% extends 'blog/base.html' %}
-
-<!-- css uchun kerak buladi -->
-
 {% load crispy_forms_tags %}
 
+{% load static %}
 
-{% block content %}
+{% load widget_tweaks %}
 
-    <div class="content-section">
-        <form action="#" method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Ro'yxatdan o'tish</legend>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <script
+            src="https://kit.fontawesome.com/64d58efce2.js"
+            crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{% static 'users/style.css' %}"/>
+    <title>Ro'yxatdan o'tish</title>
+</head>
+<style>
+    .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.6s;
+        margin-bottom: 15px;
+      }
+      
+      .alert.success {background-color: #04AA6D;}
+      .alert.info {background-color: #2196F3;}
+      .alert.warning {background-color: #ff9800;}
+      .alert.blue {background-color: #082c59;}
+      
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      .closebtn:hover {
+        color: black;
+      } 
+      
+      @media only screen and (max-width: 281px) {
+        .container {
+            min-height: 1000px;
+        }
+    }
 
-                <!-- {{ form.as_p }} -->
-                <!-- formalar bilan ishlash uchun kerak buladi bootstrap bilan -->
-                {{ form|crispy }}
+    @media screen and (max-width: 769px) {
+        .signup-mt {
+          margin-top: -12px;
+        }
+      }
+    
 
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Ro'yxatdan o'tish</button>
-            </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted"> Allaqachon profile bormi?: <a class="ml-2" href="{% url 'login' %}">Login</a></small> <br>
-           <small><a href="{% url 'social:begin' 'facebook' %}"><img src="https://img.icons8.com/material-rounded/24/000000/facebook.png"/>Login with Facebook</a></small> 
+</style>
+<body>
+    
+<div class="container mt-5">
+    <div class="forms-container">
+        <div class="signin-signup signup-mt">
+            <form action="#" class="sign-in-form" method="POST">
+                {% csrf_token %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert blue">
+                            <span class="closebtn">&times;</span>  
+                            <strong>{{ message }}!</strong> 
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                
+                <h2 class="title">Ro'yxatdan o'tish</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    {{ form.username }}
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope"></i>
+                    {{ form.email }}
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <!-- <input type="password" placeholder="Password" id="myInput1"/> -->
+                    {%  render_field form.password1 id="myInput1" name='pass1' %}
+                    <span class="eye" onclick="myFunction1()">
+                        <i id="hide11" class="fa fa-eye"></i>
+                        <i id="hide22" class="fa fa-eye-slash"></i>
+                    </span>
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <!-- <input class="" type="password" placeholder="Confirm Password" id="myInput"/> -->
+                   
+                    {%  render_field form.password2 id="myInput" name='pass2' %}
+                    <span class="eye" onclick="myFunction()">
+                        <i id="hide1" class="fa fa-eye"></i>
+                        <i id="hide2" class="fa fa-eye-slash"></i>
+                    </span>
+                </div>
+                <small>*Parol 8 tadan ko'p bo'lishi shart!</small>
+                <div class="d-flex">
+                   <button class="btn solid" type="submit">Jo'natish</button>
+                   <a class="btn solid" style="text-decoration: none;" href="{% url 'blog-home' %}"><button class="btn solid" type="button">Bosh sahifa</button></a>
+                </div>
+            </form>
         </div>
     </div>
     
-{% endblock content %}
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>Akkountingiz bormi ?</h3>
+                <p>
+                    Oldin ro'yxatdan o'tgan bo'sangiz iltimos Kirish tugmasini bosing..
+                </p>
+                <a href="{% url 'login' %}">
+                    <button class="btn transparent">
+                        Kirish
+                     </button>
+                </a>
+            </div>
+            <img src="{% static 'assets/img/register.svg' %}" class="image" alt="Surat"/>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{% static 'users/app.js' %}"></script>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Username...';
+    form_fields[2].placeholder = 'Email...';
+    form_fields[3].placeholder = 'Parol...';
+    form_fields[4].placeholder = 'Parolni qayta kiriting...';
+
+    for (var field in form_fields){
+        form_fields[field].className += 'form-control'
+    }
+
+</script>
+<script>
+    var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,13 +1,14 @@
-{% extends 'blog/base.html' %}
+{% comment %} {% extends 'blog/base.html' %} {% endcomment %}
 <!-- 
 css uchun kerak buladi -->
 
 {% load crispy_forms_tags %}
 
 
-{% block content %}
+{% load static %}
 
-    <div class="content-section">
+{% load widget_tweaks %}
+{% comment %} <div class="content-section">
         <form action="" method="POST">{% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Kirish</legend>
@@ -29,6 +30,165 @@ css uchun kerak buladi -->
             <small class="text-muted"> Profilingiz yo'qmi? : <a class="ml-2" href="{% url 'rigester' %}">Register</a></small> <br>
             <small> <a href="{% url 'social:begin' 'facebook' %}"><img src="https://img.icons8.com/material-rounded/24/000000/facebook.png"/>Login with Facebook</a></small>
         </div>
+    </div> {% endcomment %}
+{% block content %}
+
+    
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script
+            src="https://kit.fontawesome.com/64d58efce2.js"
+            crossorigin="anonymous"
+    ></script>
+    
+    <link rel="stylesheet" href="{% static 'users/style.css' %}"/>
+    <title>Login</title>
+</head>
+<style>
+    .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.6s;
+        margin-bottom: 15px;
+      }
+      
+      .alert.success {background-color: #04AA6D;}
+      .alert.info {background-color: #2196F3;}
+      .alert.warning {background-color: #ff9800;}
+      .alert.blue {background-color: #082c59;}
+      
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      
+      .closebtn:hover {
+        color: black;
+      } 
+      
+      @media screen and (min-width: 360px) and (max-width: 540px) {
+          .forms-container {
+            height: 700px;
+          }
+      }
+
+      @media screen and (min-width: 240px) and (max-width: 360px) {
+        .forms-container {
+          height: 834px;
+        }
+    }
+
+    @media screen and (min-width: 355px) {
+        .forms-container {
+          height: 709px;
+        }
+    }
+
+      @media screen and (min-width: 540px) and (max-width: 768px) {
+        .forms-container {
+          height: 759px;
+        }
+    }
+
+    @media screen and (max-width: 281px) {
+      .signup-mt {
+        margin-top: -150px !important;
+      }
+    }
+
+    @media screen and (max-width: 769px) {
+      .signup-mt {
+        margin-top: -100px;
+      }
+    }
+
+</style>
+<body>
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup signup-mt">
+            <!-- login -->
+            <form action="#" class="sign-in-form" method="POST" style="margin-top: -50px;">
+              {% if messages %}
+                {% for message in messages %}
+                   <script>alert('{{message}}')</script>
+                {% endfor %}
+              {% endif %}
+                {% csrf_token %}
+                <h2 class="title">Kirish</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    {{ form.username }}
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                 
+                    {% render_field form.password id="myInput2" %}
+                    <span class="eye" onclick="myFunction2()">
+                        <i id="hide111" class="fa fa-eye"></i>
+                        <i id="hide222" class="fa fa-eye-slash"></i>
+                    </span>
+                </div>
+                <div class="d-flex">
+                    <button class="btn solid" type="submit">Kirish</button>
+                    <a class="btn solid" style="text-decoration: none;" href="{% url 'blog-home' %}"><button class="btn solid" type="button">Bosh Sahifa</button></a>
+                    <center><a class="center" href="{% url 'password_reset' %}"> Parolni unutingizmi?</a><br><small> <a href="{% url 'social:begin' 'facebook' %}"><img src="https://img.icons8.com/material-rounded/24/000000/facebook.png"/>Login with Facebook</a></small></center>
+                </div>
+            </form>
+        </div>
     </div>
+
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>Akkountingiz yo'qmi ?</h3>
+                <p>
+                  Akkount mavjud bo'lmasa iltimos
+                    ro'yxatdan o'ting
+                </p>
+                <a href="{% url 'rigester' %}">
+                    <button class="btn transparent">
+                        Register
+                    </button>
+                </a>
+            </div>
+            <img src="{% static 'assets/img/register.svg' %}" class="image" alt="Surat"/>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'users/app.js' %}"></script>
+<script>
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Username...';
+    form_fields[2].placeholder = 'Password...';
+</script>
+<script>
+    var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
+</body>
+</html>
     
 {% endblock content %}

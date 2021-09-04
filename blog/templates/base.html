@@ -1,0 +1,236 @@
+{% load static %}
+
+{% block extrahead %}
+
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+
+{{ block.super }}
+
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Yagona nur xukmronligi</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'assets/css/index.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'assets/css/blog-responsive.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/index.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/blog.css' %}">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        <style>
+            html, body { height: 100%; }
+            body { display: flex; flex-direction: column; }
+            main { flex-grow: 1; }
+
+.i-icon {
+    display: flex !important;
+}
+
+.i-icon:hover {
+    color: white;
+}
+
+.tel-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 25px !important;
+    z-index: 2;
+    font-size: 26px;
+    width: 48px;
+    height: 48px;
+    background: #27a5e7;
+    box-shadow: 1px 1px 5px #27a5e7;
+    color: #fff;
+    border-radius: 50%;
+    opacity: 1;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    text-decoration: none !important;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.tel-btn:hover {
+    color: white;
+}
+
+.anime-tel {
+    animation: animationpulse 2s infinite;
+    animation-iteration-count: infinite;
+}
+
+.home-txt {
+    color: #5fcf80 !important;
+}
+
+.home-txt:hover {
+    color: #5fcf80 !important;
+}
+
+.bx-icn {
+    display: none !important;
+}
+
+@keyframes animationpulse {
+    0% {
+        transform: scale(1.0, 1.0);
+    }
+    10% {
+        transform: scale(1.1, 1.1);
+    }
+    15% {
+        transform: scale(1.0, 1.0);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(0 0 0 / 0%);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0 0 0 / 0%);
+    }
+}
+
+@media only screen and (max-width: 319px) {
+    .mt2 {
+        margin-top: 7px;
+    }
+    .nav-btns-div {
+        flex-wrap: wrap;
+    }
+    .nav-btn-mt {
+        margin-top: 5px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    .bx-icn {
+        display: inline-block !important;
+    }
+}
+</style>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    </head>
+<body>
+
+
+<header>
+        <nav class="navbar navbar-expand-lg nav-bar navbar-light sticky-top">
+            <div class="container">
+                <a class="nav-link active home-txt" aria-current="page" href="{% url 'blog-home' %}" style="padding: 8px 16px 8px 0;"><i class='bx bxs-home bx-icn'></i>Postlar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link clr-nav" href="{% url 'blog-about' %}">Biz haqimizda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link clr-nav" href="{% url 'post-pdf' %}">PDF Postlar</a>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link clr-nav" href="{% url 'user-posts'  user.username %}">Postlarim</a>
+                        </li>                                                
+                        {% endif %}
+                    </ul>
+                    {% if user.is_authenticated  %}
+                        <form class="d-flex nav-btns-div">
+                        <a class="btn btn-dark mr2 nav-btn-mt" href="{% url 'post-create' %}"> Post yaratish</a>
+                            <a class="btn btn-outline-dark mr2" href="{% url 'profile' %}"><i class='bx bxs-user' ></i>{{ user.username }}</a>
+                            <a class="btn btn-dark mr2 nav-btn-mt" href="{% url 'logout' %}"><i class='bx bx-log-out'></i> Chiqish</a>
+                        </form>
+                    {% else %}
+                        <form class="d-flex"></form>
+                            <a class="btn btn-outline-dark mr2" href="{% url 'rigester' %}"><i class='fas fa-user-plus'></i>  Ro'yxatdan o'tish</a>
+                            <a class="btn btn-dark mr2 mt2" href="{% url 'login' %}"><i class='bx bx-log-in'></i>Kirish</a>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+<main>
+
+        <div class="col-md-8">
+
+          <!-- Bu yerda alert xabar chiqarsak buladi  -->
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor %}
+          {% endif %}
+
+          
+        </div>
+
+{% block content %}
+          
+{% endblock %}
+</main>
+
+          
+</body> 
+<script src="{% static 'assets/js/dataaos.min.js' %}"></script>
+<script src="{% static 'assets/js/animate.js' %}"></script>
+<script>
+    AOS.init();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+    new WOW().init();
+    new WOW().init();
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script>
+    function email_alert() {
+        const value = document.getElementById('email').value;
+        if (value.length > 5) {
+            alert('Email pochtangizga qayta parol yuborildi.')
+        }
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+  $(document).ready(function(){
+    $("#myModal").modal('show');
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</html>

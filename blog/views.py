@@ -88,7 +88,7 @@ def LikeView(request,pk):
 #based class view ---> ListView
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html'
+    template_name = 'index.html'
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 4 #varaqda 5ta post sigishi  http://127.0.0.1:8000/?page=1
@@ -108,7 +108,7 @@ class UserPostListView(ListView):
 #DetailView
 class PostDetailView(DetailView):
     model = Post
-  
+    template_name = 'post_detail.html'
     def get_context_data(self,*args, **kwargs):
         context = super(PostDetailView,self).get_context_data(**kwargs)
         #like count

@@ -1,0 +1,236 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    #particles-js {
+        width: 100%;
+        height: 100vh;
+        background-color: #110c02;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .new-back-mt100 {
+        margin-top: 150px !important;
+    }
+
+    @media only screen and (max-width: 550px) {
+        .new-back-mt100 {
+            margin-top: 70px !important;
+        }
+    }
+
+    em {
+        display: contents;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .pagination ul li:hover span a{
+        color: white ;
+        list-style: none;
+        line-height: 45px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.3s ease;
+    }
+
+    .pagination ul li span a{
+        color: #059a55 ;
+        list-style: none;
+        line-height: 45px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-get-started {
+        width: auto !important;
+    }
+
+    .ind-blog-txt {
+        text-align: center;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        font-family: inherit;
+        font-weight: 500;
+        color: inherit;
+    }
+
+    @media only screen and (max-width: 281px) {
+        .fnts {
+            font-size: 22px;
+        }
+
+        .mr2 {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+    }
+
+    @media only screen and (max-width: 345px) {
+        .fnts {
+            font-size: 22px;
+        }
+    }
+    
+    #load {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 1;
+        overflow: visible; 
+       background: rgba(0, 0, 0, 1) no-repeat; 
+    }
+
+    .loader {
+        height: 100px;
+        width: 100px;
+        border: 15px solid #45474b;
+        border-top-color: #2a88e6;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 50%;
+        animation: spin 1.5s infinite linear;
+    }
+
+</style>
+
+<div class="birds-canvas hero p-0" id="particles-js">
+    <div class="container">
+        <div class="row new-back-row w-100" style="position: absolute; left: 0;">
+            <div class="new-back-mt100 col-lg-6 d-flex flex-column justify-content-center">
+                <div class="ml-hero offset-lg-2">
+                    <h2 class="animate__animated animate__zoomInUp animate__slow">Abad.uz ga xush kelibiz</h2>
+                                    <div class="text-center text-lg-start">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'post-create' %}"
+                                class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center animate__animated animate__backInUp animate__slow">
+                                <span>Post qo'shish</span>
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                </div>
+
+            </div>
+            <div class="new-back-mt100 col-lg-6">
+                {% comment %} <img src="{% static 'assets/img/undraw_Meditation_re_gll0.svg' %}" class="img-fluid br-img offset-lg-4" alt=""> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="team" id="team">
+    <div class="container mt-5" data-aos="fade-right"
+        data-aos-easing="ease-in-sine">
+        <header class="section-header">
+            <h1 class="title-cards">Blog app</h1>
+            <div class="team-line">
+                <div class="d-flex team-lne">
+                    <hr>
+                    <div class="chz"></div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="row d-flex">
+
+            {% for post in posts %}
+                <div class="col-md-3 mt-5" style="padding: 0 12 0 12;">
+                    <div class="card shadow text-center">
+                        <div class="inner">
+                            <img class="card-img" src="{{ post.image.url }}" alt="Blog">
+                        </div>
+                        <div class="card-body lck-team">
+                            <div class="card-title"><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></div>
+                            <p class="card-text">{{ post.content | safe | truncatewords:"5" }}</p>
+                        </div>
+                              <div class="article-metadata">
+                                    Posted by: <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a><br>
+                                    Create at: <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small> 
+                                </div><br>
+                        <center><a class="btn btn-success btn-team" href="{% url 'post-detail' post.id %}">Batafsil</a></center>
+                    </div>
+                </div>
+            {% empty %}
+                <h2 class="ind-blog-txt">Blog mavjud emas...</h2>
+            {% endfor %}
+
+            {% comment %} paginations {% endcomment %}
+            {% if is_paginated %}
+                <div class="Pagen w-100">
+                    <div class="pagination mt-5">
+                        <ul>
+                            {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}"><li class="bttn prev page-li-hov"><span><i class="fas fa-angle-left"> Back</i></span></li></a>
+                            {% endif %}
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                <a href="?page={{ num }}"><li class="numb page-li-hov active"><span>{{num}}</span></li></a>
+                                {% elif num > page_obj.number|add:'-2' and num < page_obj.number|add:'2' %}
+                                <a href="?page={{ num }}"><li class="numb page-li-hov"><span>{{ num }}</span></li></a>
+                                {% endif %}
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}"><li class="bttn next page-li-hov"><span>Next <i class="fas fa-angle-right"></i></span></li></a> 
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+
+        </div>
+    </div>
+</section>
+
+<br>
+<br/>
+<br/>
+<br/>
+
+<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+<script type="text/javascript">
+
+    var load;
+    function loadNow(opacity) {
+        if(opacity <= 0) {
+            displayContent();
+        }
+        else {
+            load.style.opacity = opacity;
+            window.setTimeout(function(){
+                loadNow(opacity - 0.05)
+            }, 50);
+        }
+    }
+    
+    function displayContent() {
+        load.style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        load = document.getElementById('load');
+        loadNow(1);
+    })
+    </script>
+
+{% endblock content %}

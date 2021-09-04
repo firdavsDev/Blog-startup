@@ -1,29 +1,105 @@
-{% extends 'blog/base.html' %}
-<!-- 
-css uchun kerak buladi -->
+{% extends 'base.html' %}
 
 {% load crispy_forms_tags %}
 
-
 {% block content %}
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body, input {
+        font-family: "Poppins", sans-serif;
+    }
+
+    .nav-bar {
+        background-color: #f4f8f7;
+        box-shadow: 0 0 30px rgb(127 137 161 / 30%);
+    }
+
+    .navbar-light .navbar-brand {
+        color: rgba(0, 0, 0, .9);
+    }
+
+    .nav-item .active {
+        color: #5fcf80 !important;
+    }
+
+    .navbar-brand {
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .logout-box {
+        border-radius: 25px !important;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 0 50px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .del-btn {
+        color: white;
+        background-color: #082a54;
+    }
+
+    .del-btn:hover {
+      color: white;
+      background-color: #082a54;
+      border-right: 1px solid white;
+  }
+
+    
+
+    @media only screen and (max-width: 600px) {
+        .del-header-title {
+            font-size: 18px;
+        }
+    }
+
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<section class="my-5 logout">
+    <div id="myModal" class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Profilingiz o'chirildi...</h5>
+          </div>
+          <div class="modal-body">
+            <p>Bosh sahifaga yoki qayta ro'yhatdan o'ting</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
-        <div id="myModal" class="modal fade">
-        
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Profilingiz o'chirildi...</h5>
-                </div>
-                <div class="modal-body">
-                  <p>Bosh sahifaga yoki qayta ro'yhatdan o'ting</p>
-                </div>
-              </div>
+      <div class="row">
+        <div class="col-lg-12 col-12">
+          <div class="col-lg-8 mx-auto py-5 logout-box">
+            <h2 class="col-12 text-center mx-auto del-header-title">Profilingiz o'chirildi...</h2>
+            <div class="btn-group col-lg-6 col-8 mt-2 py-2 d-flex justify-content-center mx-auto" role="group" aria-label="Basic example">
+              <a href="{% url 'blog-home' %}" class="btn coltable-btn del-btn">Bosh sahifa</a>
+              <a href="{% url 'login' %}" class="btn coltable-btn del-btn" style="border-left: 1px solid white;">Qayta kirish</a>
             </div>
           </div>
-          
-        <h2>Akountingizdan chiqdingizz!</h2>
-        <div class="border-top pt-3">
-            <a  class="btn btn-outline-danger ml-2"  href="{% url 'login' %}">Qayta kirish</a>
         </div>
+      </div>
     </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function(){
+      $("#myModal").modal('show');
+    });
+  </script>
+
 {% endblock content %}

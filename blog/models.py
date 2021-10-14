@@ -8,6 +8,9 @@ from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User #bazadagi ruyhatdan utkanlar uchun
 
+#ckediot
+
+
 #POST MODELIMIZNI YARIB OLAMIZ 
 # python manage.py sqlmigrate blog 0001 ---- bu sql holatda kurish migrate bulgan malumotni
 # python manage.py shell ----- terminaldan boshqarish
@@ -20,6 +23,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User',related_name='posts',on_delete=models.CASCADE) #agar ruyhatdan utgan insoni akkounti uchirilsa uning postlari ham uchib ketadi
     #like
     likes = models.ManyToManyField(User,related_name='blog_posts')
+
     #likes soni
     def total_likes(self):
         return self.likes.count()

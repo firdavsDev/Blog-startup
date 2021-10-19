@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+    <p>Uchirmoqchimisiz? "{{item}}"</p>
+    <a href="{% url 'todo' %}">Bekor qilish</a>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="submit" name="Confirm">
+    </form>
+</body>
+</html>

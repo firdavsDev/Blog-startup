@@ -1,0 +1,82 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+
+	body{
+		background-color: #472cc4;
+	}
+
+	input{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+	}
+
+	input::placeholder {
+	  color: #d68a8a;
+	}
+
+	.submit{
+		background-color: #5b05fc;
+	}
+
+	.center-column{
+		width:600px;
+		margin: 20px auto;
+		padding:20px;
+		background-color: rgb(150, 99, 99);
+		border-radius: 3px;
+		box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	}
+
+	.item-row{
+		background-color: #3e2a57;
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 16px;
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+
+	.btn-danger{
+		background-color: #c5051e;
+		border-color: #0d0ac9;
+	}
+
+</style>
+
+<div class="center-column">
+	<h2><center> <a href="{% url 'blog-home' %}">Home</a> </center></h2>
+	<form method="POST" action=".">
+		{% csrf_token %}
+		{{form.mavzu}}
+		<input class="btn btn-info" type="submit" value="Qo'shmoq" name="Create Task">
+	</form>
+
+	<div class="todo-list">
+
+	{% for task in tasks %}
+		<div class="item-row">
+
+			{% if task.user == user %}
+			
+				<a class="btn btn-sm btn-info" href="{% url 'update_todo' task.id %}">Yangilash</a>
+				<a class="btn btn-sm btn-danger" href="{% url 'delete_todo' task.id %}">O'chirish</a>
+			  
+		
+
+		  {% endif %}
+
+			
+
+			{% if task.tugadi == True %}
+			<strike>{{task}}</strike>
+			{% else %}
+			<span>{{task}}</span>
+			{% endif %}
+		</div>
+	{% endfor %}
+	</div>
+</div>

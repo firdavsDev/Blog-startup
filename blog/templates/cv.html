@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+        
+<link href="/static/assets/css/flexgridcombo.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<!-- <link href="/static/assets/css/style.css" rel="stylesheet"> -->
+<link rel="shortcut icon" type="image/jpg" href="/static/assets/favicon.ico">
+
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<br>
+
+<section class="section-title">
+    <div class="container">
+        <div class="section-content">
+            <h1>Résumé</h1>
+        </div>
+    </div>
+</section>
+
+
+<section id="" class="flex align-items-center">
+    <div class="container" style="max-width: 1280px;">
+        <div class="row justify-center">
+            <div id="cv" class="col-lg-8 col-md-10 col-12">
+                
+                <h3 id="work-experience">Work Experience</h3>
+                
+              <ul class="list-wrapper">
+                <li>
+                  <div class="list-item">
+                    <p style="display: flex; justify-content: space-between"><b>Backend Engineer, Super Dispatch</b> <em>October 2018 - Present</em></p>
+                    <ul>
+                      • Developed backend of the transportation management system for shipping cars that moves 200K orders annually. Primary technologies: Python, Django, and Golang.<br>
+                      • Optimized memory usage by 2,000% by identifying memory leaks in the document generator library and implementing a solution that reclaimed memory after generating a document.<br>
+                      • Increased service reliability up to 99.99% by implementing a rolling update strategy with Kubernetes.<br>
+                      • Decreased the response time of the main service from 500ms to under 200ms by introducing an independent micro-service for handling file uploads with Google Cloud Storage.<br>
+                      • Collaborated with mobile and frontend engineers to develop REST API contracts and documented using Swagger.
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="list-item">
+                    <p style="display: flex; justify-content: space-between"><b>Backend Engineer, Workly</b><em>July 2018 - October 2018</em></p>
+                    <ul>
+                        • Developed a backend for automatic time & attendance tracking system.<br/>
+                        • Reduced usage cost of AWS by 40% by converting old services from Python to Golang, that allowed to use cloud resources more efficiently.<br/>
+                        • Integrated Anviz fingerprint controller to publish attendance data to the web application.<br/>
+                        • Authored company’s Golang code style guide that was used by 5 backend engineers.
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+  
+              <h3 id="work-experience">Projects</h3>
+              <ul class="list-wrapper">
+                <li>
+                  <div class="list-item">
+                    <p style="display: flex; justify-content: space-between"><b>JPRQ - Ngrok Alternative</b> <em>May 2020 – Present</em></p>
+                    <ul>
+                      • JPRQ is a free and open-source Ngrok alternative to get localhost online with 230 stars on GitHub. <br>
+                      • It allows developers to perform unlimited requests/minute to the local server compared to Ngrok's 40 requests/minute limit.<br>
+                      • Can expose multiple ports at the same time compared to Ngrok with 1 port limit.<br>
+                      • Used Python for the CLI and Golang for server-side.
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="list-item">
+                    <p style="display: flex; justify-content: space-between"><b>MusicSpider - Chrome Extention for Music</b><em>Nov 2018 – Jan 2019</em></p>
+                    <ul>
+                      • Built spiders that crawled 200K songs in 3 days from 10 music websites. <br>
+                      • Runner up among 34 projects presented on Garage48 hackathon.<br>
+                      • Used Python for crawlers, ElasticSearch for search engine, TypeScript for the chrome extension.
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <div class="list-item">
+                    <p style="display: flex; justify-content: space-between"><b>Azimjon's Blog</b><em>Apr 2020 – Present</em></p>
+                    <ul>
+                      Azimjon.com is my personal blog with 800 monthly readers where I write about non-technical things in the technical world. 8 articles written so far.
+                    </ul>
+                  </div>
+                </li> 
+              </ul>
+  
+              <h3>Education</h3>
+              <ul class="list-wrapper">
+                <li>
+                  <div class="list-item">
+                    <p style="display: flex; justify-content: space-between">
+                      <b>Polish-Japanese Academy of IT</b>
+                      <i>Bachelor’s in Computer Science, 2020 - 2024</i>
+                    </p>
+                    <p style="display: flex; justify-content: space-between">
+                      <b>Inha University in Tashkent</b>
+                      <i>Bachelor’s in Computer Science, 2017 - 2018</i>
+                    </p>
+                  </div>
+                </li>
+              </ul>
+  
+              <h3>Voluntary Activities</h3>
+              <ul class="list-wrapper">
+                <li>
+                  <div class="list-item">
+                    <ul>
+                      • Developed 2 courses to teach Python in Uzbek language at pdp.uz. 30 lessons created so far.<br>
+                      • Gave a talk about Asynchronous Django at Nursultan Google DevFest 2019.<br>
+                      • Mentored students on Docker & Kubernetes at Google Cloud Study Jam with 50 total attendees.<br>
+                      • Mentored girls aged 14-18 on Python at DjangoGirls - programming bootcamp for girls, with 70 total attendees.
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+{% endblock content %}

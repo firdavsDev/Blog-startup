@@ -72,6 +72,7 @@ def _extracted_from_post_pdf_17(lines, posts):
 #like dislike
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy,reverse
+
 def LikeView(request,pk):
     post = get_object_or_404(Post, id=request.POST.get('post_id'))
     liked = False

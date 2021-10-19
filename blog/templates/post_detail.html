@@ -42,7 +42,7 @@
          Posted by: <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ object.author }}</a>
           
 
-               {% comment %} like {% endcomment %}
+               <!-- {% comment %} like {% endcomment %} -->
               <form action="{% url 'like_post' post.pk %}" method="POST">
             {% csrf_token %}
             {% if user.is_authenticated %}

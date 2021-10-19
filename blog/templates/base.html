@@ -11,9 +11,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>IT PRO uz.uz uchun maxsus</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+
+        <title>Davronbek's Blog</title>
+        <meta name="author" content="Boltayev Davronbek">
+        <meta property="og:site_name" content="Davronbek's Blog"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="I am Davronbek Boltayev, a 20-year-old Strong Junior web Dev from Samarqand, Uzbekistan, currently living in Tashkent.">
+
+
         <link rel="stylesheet" href="{% static 'assets/css/index.css' %}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -30,6 +36,9 @@
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- resume css -->
+
+
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
         <style>
             html, body { height: 100%; }
@@ -144,6 +153,12 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link clr-nav" href="{% url 'blog-about' %}">Biz haqimizda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link clr-nav" href="{% url 'url' %}">Url Shorter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link clr-nav" href="{% url 'tarjima' %}">Translate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link clr-nav" href="{% url 'post-pdf' %}">PDF Postlar</a>

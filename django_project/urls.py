@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path,include
+from django.views.generic.base import TemplateView
 # users view
 from users import views as user_view
 #auth
@@ -10,7 +11,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     
-    path('admin/', admin.site.urls), #admin
+    path('_admin/', admin.site.urls), #admin
     #Login/logout/register - urls
     path('rigester/',user_view.rigester,name='rigester'), 
     path('login/',auth_views.LoginView.as_view(template_name = 'users/login.html'),name='login'),
@@ -29,7 +30,17 @@ urlpatterns = [
 
     #API
     path('api/', include('BlogAPI.urls')), #blogAPI uchun
-    
+
+    # URl shorter
+    path('', include('shorter.urls')),
+    #translate
+    path('', include('tarjimon.urls')),
+    #ToDo
+    path('', include('todo.urls')),
+
+    #cv 
+    path('cv/',TemplateView.as_view(template_name='cv.html'), name ='cv'),
+    path('site/', include('portofolia.urls')),
 ]
 #Debug = True
 if settings.DEBUG:

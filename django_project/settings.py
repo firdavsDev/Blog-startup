@@ -29,6 +29,10 @@ INSTALLED_APPS = [
     'blog',
     'users.apps.UsersConfig',
     'BlogAPI', #API
+    'shorter', #url
+    'tarjimon',#translate
+    'todo',
+    'portofolia',
 
     #pip installed apps
     'crispy_forms', #pip install  django-crispy-forms  bu css bilan ishlash kerak buladi
@@ -133,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -147,7 +151,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS =[
-    BASE_DIR / 'static/'
+    BASE_DIR / 'static'
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
@@ -173,6 +177,9 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'xackercoder@gmail.com'
 EMAIL_HOST_PASSWORD = "kaiycghaxwdgisfy"
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 
 # Default primary key field type
